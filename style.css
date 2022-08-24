@@ -1,0 +1,80 @@
+ body{
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+ }
+* {box-sizing: border-box;}
+
+.overlay_container {
+  position: relative; 
+  max-width: 300px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.image {
+  display: block; 
+  height: 400px;
+  border-radius: 15px;
+}
+h4{
+    color: green;
+}
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+.overlay_container:hover .overlay {
+  opacity: 1;
+} 
+   
+   /* The animation starts here */
+   .animated-box {
+     position: relative;
+     box-shadow: 6px 10px 22px -12px rgba(255,255,255,1);
+     border-radius: 15px;
+
+   }
+   
+   .animated-box:after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     border-radius: 15px;
+     background: linear-gradient(120deg, #2200e6, #b700ff);
+     background-size: 300% 300%;
+     clip-path: polygon(0% 100%, 10px 100%, 10px 10px, calc(100% - 10px) 10px, calc(100% - 10px) calc(100% - 10px), 10px calc(100% - 10px), 10px 100%, 100% 100%, 100% 0%, 0% 0%);
+   }
+   
+   .animated-box.in:after {
+     animation: frame-enter 1s forwards ease-in-out reverse, gradient-animation 1s ease-in-out infinite;
+   }
+   
+   /* motion */
+   @keyframes gradient-animation {
+     0% {
+       background-position: 15% 0%;
+     }
+     50% {
+       background-position: 85% 100%;
+     }
+     100% {
+       background-position: 15% 0%;
+     }
+   }
+ 
+   
